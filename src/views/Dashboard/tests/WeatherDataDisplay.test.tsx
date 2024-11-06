@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from '@testing-library/react-native';
-import WeatherDataDisplay from '../components/WeatherDataDisplay';
+import WeatherDataDisplay from '../components/LocationItem/components/WeatherDataDisplay.tsx';
 
 describe('WeatherDataDisplay', () => {
   const mockWeatherData = {

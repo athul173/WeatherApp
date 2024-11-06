@@ -25,7 +25,9 @@ const ContainerScreen = ({children, title}: ContainerScreenProps) => {
           ...styles.container,
         }}>
         <View>{title && <Text style={styles.titleText}>{title}</Text>}</View>
-        <View style={styles.childrenContainer}>{children}</View>
+        <View style={styles.childrenContainer} testID={'container-child-view'}>
+          {children}
+        </View>
       </View>
     </View>
   );
