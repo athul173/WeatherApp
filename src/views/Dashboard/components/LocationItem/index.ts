@@ -1,1 +1,1 @@
-export {default} from './LocationItem.tsx';
+export {default} from './LocationItem';
