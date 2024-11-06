@@ -6,6 +6,7 @@ import {HomeStackRoutes} from '../../utils/types/Navigation.ts';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {getWeatherImageSummary} from '../../utils/parser/getWeatherImageSummary.ts';
 import theme from '../../styles/theme.ts';
+import getCurrentDateInFormat from '../../utils/parser/getCurrentDateFormat.ts';
 
 const requiredLocations = [
   {
@@ -56,7 +57,7 @@ const WeatherDetail = () => {
         imageStyle={{borderRadius: 32}}
         style={styles.headerContainer}>
         <View style={{...styles.mainContainer, padding: 24}}>
-          <Text style={styles.titleText}>{'January 25 , Wednesday 2024'}</Text>
+          <Text style={styles.titleText}>{getCurrentDateInFormat()}</Text>
           <Text
             style={{
               ...styles.titleText,
