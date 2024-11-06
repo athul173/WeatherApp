@@ -1,84 +1,12 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React from 'react';
 import ContainerScreen from '../../components/ContainerScreen/ContainerScreen.tsx';
 import LocationItem from '../../components/LocationItem';
-import {
-  PermissionsAndroid,
-  Platform,
-  Pressable,
-  Text,
-  View,
-} from 'react-native';
-import Geolocation, {
-  GeolocationResponse,
-} from '@react-native-community/geolocation';
+import {Pressable, Text, View} from 'react-native';
 import styles from './styles.ts';
+import useDashboardLocations from './hooks/useDashboardLocations.ts';
 
 const Dashboard = () => {
-  const [locationGranted, setLocationGranted] = useState(false);
-  const [locationCoordinates, setLocationCoordinates] = useState<
-    GeolocationResponse['coords'] | undefined
-  >();
-
-  const requiredLocations = useMemo(() => {
-    const items = [
-      {
-        name: 'Berlin',
-        coordinates: {
-          latitude: '52.52',
-          longitude: '13.40',
-        },
-      },
-      {
-        name: 'London',
-        coordinates: {
-          latitude: '51.50',
-          longitude: '0.127',
-        },
-      },
-    ];
-    if (locationCoordinates && locationGranted) {
-      items.unshift({
-        name: 'My location',
-        coordinates: {
-          latitude: locationCoordinates.latitude.toString(),
-          longitude: locationCoordinates.longitude.toString(),
-        },
-      });
-    }
-    return items;
-  }, [locationCoordinates, locationGranted]);
-
-  useEffect(() => {
-    if (Platform.OS === 'android') {
-      PermissionsAndroid.check('android.permission.ACCESS_FINE_LOCATION').then(
-        result => {
-          setLocationGranted(result);
-          console.log('Location granted is ', result);
-          if (result) {
-            addLocationHandler();
-          } else {
-            setLocationCoordinates(undefined);
-          }
-        },
-      );
-    }
-  }, []);
-
-  const addLocationHandler = () => {
-    Geolocation.getCurrentPosition(
-      info => {
-        console.log(info);
-        if (info.coords) {
-          setLocationGranted(true);
-          setLocationCoordinates(info.coords);
-        }
-      },
-      error => {
-        setLocationGranted(false);
-        console.log(error);
-      },
-    );
-  };
+  const {requiredLocations, addLocationHandler} = useDashboardLocations();
 
   return (
     <ContainerScreen title={'Weather'}>
