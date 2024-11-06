@@ -32,9 +32,7 @@ const LocationItem = ({item}: Props) => {
       style={styles.locationContainer}
       colors={['#A888FD', '#5996FD', '#A888FD', '#5996FD']}>
       <Pressable style={styles.pressable} onPress={onPressHandler}>
-        {isLoading ? (
-          <ActivityIndicator />
-        ) : error ? (
+        {isLoading ? null : error ? (
           <View style={styles.leftContainer}>
             <Text style={{}}>Error fetching data</Text>
           </View>

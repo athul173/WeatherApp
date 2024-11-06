@@ -1,4 +1,5 @@
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
+import GeoLocation from './GeoLocation.ts';
 
 export type StackNavigationProps<
   ParamList extends ParamListBase,
@@ -8,13 +9,7 @@ export type StackNavigationProps<
 export type HomeStackRoutes = {
   Dashboard: undefined;
   WeatherScreen: {
-    locationItem: {
-      name: string;
-      coordinates: {
-        latitude: string;
-        longitude: string;
-      };
-    };
+    locationItem: GeoLocation;
     weatherData: any;
   };
 };
