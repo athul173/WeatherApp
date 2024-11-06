@@ -55,6 +55,15 @@ platform. Use your favorite!
 - To run a on a **Development Emulator**: `yarn android`
 - Changes applied to Javascript will be applied automatically, any changes to native code will require a recompile
 
+## Testing
+
+This project emphasizes testing to ensure code quality and maintainability. We use Jest and React Native Testing Library
+for unit and integration tests.
+
+### Running Tests
+
+To run the test suite, use the following command: `yarn test`
+
 ## Base dependencies
 
 - [axios](https://github.com/axios/axios) for networking.

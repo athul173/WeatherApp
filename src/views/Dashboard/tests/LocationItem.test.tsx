@@ -2,11 +2,11 @@ import React from 'react';
 import {fireEvent, render, waitFor} from '@testing-library/react-native';
 
 import {useNavigation} from '@react-navigation/native';
-import GeoLocation from '../../../utils/types/GeoLocation.ts';
+import GeoLocation from '../../../utils/types/GeoLocation';
 import LocationItem from '../components/LocationItem';
-import {getWeatherData} from '../../../utils/parser/getWeatherData.ts';
+import {getWeatherData} from '../../../utils/parser/getWeatherData';
 import {useGetWeatherInfoQuery} from '../../../state/weather';
-import {CompleteWeatherForecast} from '../../../utils/types/weatherDataModel.ts';
+import {CompleteWeatherForecast} from '../../../utils/types/weatherDataModel';
 
 // Mock the necessary modules
 jest.mock('../../../state/weather', () => ({
