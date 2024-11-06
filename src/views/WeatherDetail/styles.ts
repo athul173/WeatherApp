@@ -5,14 +5,17 @@ export default StyleSheet.create({
   mainContainer: {
     flex: 1,
   },
-  headerContainer: {flex: 1.5, padding: 24},
+  headerContainer: {
+    flex: 1.5,
+  },
+  image: {borderRadius: 32},
   titleText: {color: 'white'},
-  mainTextContainer: {flex: 2},
+  mainTextContainer: {flex: 2, paddingHorizontal: 24},
   mainText: {color: 'white', textAlign: 'right', fontSize: 68},
   centerText: {color: 'white', textAlign: 'center'},
   footerContainer: {
     flexDirection: 'row',
-    margin: 12,
+    marginVertical: 12,
     flex: 1,
   },
   footerItemContainer: {
