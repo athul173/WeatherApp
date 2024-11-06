@@ -31,7 +31,10 @@ const LocationItem = ({item}: Props) => {
     <LinearGradient
       style={styles.locationContainer}
       colors={['#A888FD', '#5996FD', '#A888FD', '#5996FD']}>
-      <Pressable style={styles.pressable} onPress={onPressHandler}>
+      <Pressable
+        style={styles.pressable}
+        onPress={onPressHandler}
+        testID={'location-item'}>
         {isLoading ? null : error ? (
           <View style={styles.leftContainer}>
             <Text style={{}}>Error fetching data</Text>
@@ -50,6 +53,7 @@ const LocationItem = ({item}: Props) => {
                   ? require('../../../../../assets/images/warning.png')
                   : require('../../../../../assets/images/cloudy.png')
               }
+              testID={error ? 'error-test-image' : 'test-image'}
               style={styles.image}
             />
           )}
