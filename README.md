@@ -1,79 +1,108 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Weather App Using Yr (from met.no)
 
-# Getting Started
+A Dynamic weather application built using React Native and weather information from YR (https://api.met.no/)
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+<p float="left">
+<img src="https://github.com/athul173/WeatherApp/blob/main/screenshots/dashboard.png" width=25% height=25%>
+<img src="https://github.com/athul173/WeatherApp/blob/main/screenshots/weatherDetail.png" width=25% height=25%>
+</p>
 
-## Step 1: Start the Metro Server
+## Features Included
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+**React Native Application**  
+**Typescript Template**  
+**Uses YR. no (From Meteorological Institute) for weather data**
 
-To start Metro, run the following command from the _root_ of your React Native project:
+**Screens Included:**
+> Dashboard
+> Weather Details Screen
 
-```bash
-# using npm
-npm start
+**Versioning file**
+**Dynamic background image for detail weather page**
 
-# OR using Yarn
-yarn start
-```
+## Installation
 
-## Step 2: Start your Application
+## Prerequisites
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+- [Node.js > 12](https://nodejs.org) and npm (Recommended: Use [nvm](https://github.com/nvm-sh/nvm))
+- [Watchman](https://facebook.github.io/watchman)
+- [Xcode 12](https://developer.apple.com/xcode)
+- [Cocoapods 1.10.1](https://cocoapods.org)
+- [JDK > 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+- [Android Studio and Android SDK](https://developer.android.com/studio)
 
-### For Android
+## Getting Started
 
-```bash
-# using npm
-npm run android
+1. Install `node` & `npm` and then yarn
+2. Install `watchman`: `brew install watchman`
+3. Install dependencies: `yarn add`
 
-# OR using Yarn
-yarn android
-```
+You can use any IDE or code editing tool along with any package managers (npm, nvm , yarn) for developing on any
+platform. Use your favorite!
 
-### For iOS
+## Running the iOS app 📱
 
-```bash
-# using npm
-npm run ios
+- To install the iOS dependencies, run: `npx pod-install ios`
+- To run a on a **Development Simulator**: `yarn ios`
+- Changes applied to Javascript will be applied automatically, any changes to native code will require a recompile
 
-# OR using Yarn
-yarn ios
-```
+## Running the Android app 🤖
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+- To install the Android dependencies, run: `yarn add`
+- For more information, go through the official React-Native instructions
+  on [this page](https://reactnative.dev/docs/environment-setup#development-os) for "React Native CLI Quickstart" > Mac
+  OS > Android
+- To run a on a **Development Emulator**: `yarn android`
+- Changes applied to Javascript will be applied automatically, any changes to native code will require a recompile
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+## Base dependencies
 
-## Step 3: Modifying your App
+- [axios](https://github.com/axios/axios) for networking.
+- [react-navigation](https://reactnavigation.org/) navigation library.
+- [react-native-config](https://github.com/luggit/react-native-config) to manage environments.
+- [jest](https://facebook.github.io/jest/)
+  and [react-native-testing-library](https://callstack.github.io/react-native-testing-library/) for
+  testing. -[lottie-react-native](https://github.com/lottie-react-native/lottie-react-native) for animations as
+  JSON -[react-native-community/geolocation](https://github.com/michalchudziak/react-native-geolocation) for fetching
+  device location
 
-Now that you have successfully run the app, let's modify it.
+## Folder structure
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+This template follows a very simple project structure:
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+- `src`: This folder is the main container of all the code inside your application.
+    - `assets`: Asset folder to store all images, vectors, etc.
+    - `components`: Folder to store any common component that you use through your app (such as a generic button)
+    - `container`: All screen-based components inside containers, such as Tabs, Drawers, Stack Navigators.
+    - `screens`: Folder that contains all your application screens/features.
+    - `utils`: All the utils/helpers files go here that storing reusable methods and logic.
+    - `styles`: Folder to store all the styling concerns related to the application theme like palettes,themes etc.
+    - `index.js`: Entry point of your application as per React-Native standards.
+    -
 
-## Congratulations! :tada:
+## Generate production version
 
-You've successfully run and modified your React Native App. :partying_face:
+These are the steps to generate `.apk`, `.aab` and `.ipa` files
 
-### Now what?
+### Android
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+1. Generate an upload key
+2. Setting up gradle variables
+3. Go to the android folder
+4. Execute `./gradlew assemble[Env][BuildType]`
 
-# Troubleshooting
+Note: You have three options to execute the project
+`assemble:` Generates an apk that you can share with others.
+`install:` When you want to test a release build on a connected device.
+`bundle:` When you are uploading the app to the Play Store.
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+For more info please go to https://reactnative.dev/docs/signed-apk-android
 
-# Learn More
+### iOS
 
-To learn more about React Native, take a look at the following resources:
+1. Go to the Xcode
+2. Select the schema
+3. Select 'Any iOS device' as target
+4. Product -> Archive
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+For more info please go to https://reactnative.dev/docs/publishing-to-app-store
