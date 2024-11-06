@@ -1,37 +1,30 @@
-export interface SunriseSunsetApiResponse {
-  location: {
-    // Latitude of the location
-    latitude: number;
-    // Longitude of the location
-    longitude: number;
+export interface SunriseSunsetDataModel {
+  copyright: string; // Example: "MET Norway"
+  geometry: {
+    coordinates: number[]; // Example: [13.4, 52.5]
+    type: string; // Example: "Point"
   };
-  // Array of sunrise/sunset data for each requested date
-  data: SunriseSunsetData[];
+  licenseURL: string; // Example: "https://api.met.no/license_data.html"
+  properties: {
+    body: string; // Example: "Sun"
+    solarmidnight: SolarEvent;
+    solarnoon: SolarEvent;
+    sunrise: SolarEventTime;
+    sunset: SolarEventTime;
+  };
+  type: string; // Example: "Feature"
+  when: {
+    interval: string[]; // Example: ["2024-11-05T22:50:00Z", "2024-11-06T23:06:00Z"]
+  };
 }
 
-export interface SunriseSunsetData {
-  // Date for which the sunrise/sunset data is provided
-  date: string;
-  // Sunrise time in UTC
-  sunrise: string;
-  // Sunset time in UTC
-  sunset: string;
-  // Time of solar noon in UTC
-  solarnoon: string;
-  // Day length in ISO 8601 duration format (e.g., "PT10H30M")
-  daylength: string;
-  // Polar day (true) or polar night (false)
-  polarNight: boolean;
-  // Time of astronomical twilight start in UTC (if applicable)
-  astronomicalTwilightBegin?: string;
-  // Time of astronomical twilight end in UTC (if applicable)
-  astronomicalTwilightEnd?: string;
-  // Time of nautical twilight start in UTC (if applicable)
-  nauticalTwilightBegin?: string;
-  // Time of nautical twilight end in UTC (if applicable)
-  nauticalTwilightEnd?: string;
-  // Time of civil twilight start in UTC (if applicable)
-  civilTwilightBegin?: string;
-  // Time of civil twilight end in UTC (if applicable)
-  civilTwilightEnd?: string;
+interface SolarEvent {
+  disc_centre_elevation: number; // Example: -53.55
+  time: string; // Example: "2024-11-05T22:50+00:00"
+  visible: boolean; // Example: false
+}
+
+interface SolarEventTime {
+  azimuth: number; // Example: 115.96
+  time: string; // Example: "2024-11-06T06:12+00:00"
 }

@@ -1,5 +1,5 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-import {SunriseSunsetApiResponse} from '../../utils/types/sunriseWeatherDataModel.ts';
+import {SunriseSunsetDataModel} from '../../utils/types/sunriseWeatherDataModel.ts';
 import {CompleteWeatherForecast} from '../../utils/types/weatherDataModel.ts';
 
 const YRSunriseURL = 'https://api.met.no/weatherapi/';
@@ -12,7 +12,7 @@ export const yrAPI = createApi({
   baseQuery: fetchBaseQuery({baseUrl: YRSunriseURL}),
   endpoints: builder => ({
     getSunriseWeatherInfo: builder.query<
-      SunriseSunsetApiResponse,
+      SunriseSunsetDataModel,
       {longitude: string; latitude: string}
     >({
       query: locationCoordinates => ({
