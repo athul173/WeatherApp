@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react';
-import {ActivityIndicator, Image, Pressable, View} from 'react-native';
+import {ActivityIndicator, Image, Pressable, Text, View} from 'react-native';
 import styles from './styles.ts';
 import {useGetWeatherInfoQuery} from '../../state/weather';
 import {getWeatherData} from '../../utils/parser/getWeatherData.ts';
@@ -17,7 +17,7 @@ interface Props {
 }
 
 const LocationItem = ({item}: Props) => {
-  const {data, isLoading} = useGetWeatherInfoQuery(item.coordinates);
+  const {data, error, isLoading} = useGetWeatherInfoQuery(item.coordinates);
   const navigation =
     useNavigation<StackNavigationProps<HomeStackRoutes, 'Dashboard'>>();
 
@@ -34,15 +34,24 @@ const LocationItem = ({item}: Props) => {
       <Pressable style={styles.pressable} onPress={onPressHandler}>
         {isLoading ? (
           <ActivityIndicator />
+        ) : error ? (
+          <View style={styles.leftContainer}>
+            <Text style={{}}>Error fetching data</Text>
+          </View>
         ) : (
           <WeatherDataDisplay weatherData={weatherData} name={item.name} />
         )}
+
         <View style={styles.rightContainer}>
           {isLoading ? (
             <ActivityIndicator />
           ) : (
             <Image
-              source={require('../../../assets/images/cloudy.png')}
+              source={
+                error
+                  ? require('../../../assets/images/warning.png')
+                  : require('../../../assets/images/cloudy.png')
+              }
               style={styles.image}
             />
           )}
