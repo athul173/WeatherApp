@@ -23,7 +23,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
   },
   smallText: {
-    fontSize: 12,
+    fontSize: theme.spacing.L,
     paddingHorizontal: 4,
     paddingVertical: theme.spacing.S,
     textAlign: 'center',
