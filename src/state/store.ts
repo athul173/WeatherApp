@@ -7,7 +7,10 @@ export const store = configureStore({
     [yrAPI.reducerPath]: yrAPI.reducer,
   },
   middleware: getDefaultMiddleware =>
-    getDefaultMiddleware().concat(yrAPI.middleware),
+    getDefaultMiddleware({
+      immutableCheck: {warnAfter: 50},
+      serializableCheck: {warnAfter: 50},
+    }).concat(yrAPI.middleware),
 });
 
 setupListeners(store.dispatch);
