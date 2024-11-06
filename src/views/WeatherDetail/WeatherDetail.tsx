@@ -7,6 +7,7 @@ import {RouteProp, useRoute} from '@react-navigation/native';
 import {getWeatherImageSummary} from '../../utils/parser/getWeatherImageSummary.ts';
 import theme from '../../styles/theme.ts';
 import getCurrentDateInFormat from '../../utils/parser/getCurrentDateFormat.ts';
+import LinearGradient from 'react-native-linear-gradient';
 
 const requiredLocations = [
   {
@@ -78,30 +79,38 @@ const WeatherDetail = () => {
           backgroundColor: theme.color.black,
         }}>
         <View style={styles.footerContainer}>
-          <View style={styles.footerItemContainer}>
+          <LinearGradient
+            style={styles.footerItemContainer}
+            colors={['#5996FD', '#A888FD']}>
             <Text style={styles.centerText}>{'Sunrise'}</Text>
             <Text style={styles.centerText}>
               {sunriseWeatherData.sunrise ?? '05:40'}
             </Text>
-          </View>
-          <View style={styles.footerItemContainer}>
+          </LinearGradient>
+          <LinearGradient
+            style={styles.footerItemContainer}
+            colors={['#5996FD', '#A888FD']}>
             <Text style={styles.centerText}>{'Sunset'}</Text>
             <Text style={styles.centerText}>
               {sunriseWeatherData.sunset ?? '20:26'}
             </Text>
-          </View>
+          </LinearGradient>
         </View>
         <View style={styles.footerContainer}>
-          <View style={styles.footerItemContainer}>
+          <LinearGradient
+            style={styles.footerItemContainer}
+            colors={['#A888FD', '#5996FD']}>
             <Text style={styles.centerText}>{'Humidity'}</Text>
             <Text style={styles.centerText}>
               {weatherData.humidity.toString() ?? '26%'}
             </Text>
-          </View>
-          <View style={styles.footerItemContainer}>
+          </LinearGradient>
+          <LinearGradient
+            style={styles.footerItemContainer}
+            colors={['#A888FD', '#5996FD']}>
             <Text style={styles.centerText}>{'Visibility'}</Text>
             <Text style={styles.centerText}>{'16.2 km'}</Text>
-          </View>
+          </LinearGradient>
         </View>
       </View>
     </View>

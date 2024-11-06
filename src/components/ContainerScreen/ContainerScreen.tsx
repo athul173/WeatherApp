@@ -10,10 +10,10 @@ interface ContainerScreenProps {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.color.appBackgroundColor,
+    backgroundColor: theme.color.black,
   },
   childrenContainer: {marginVertical: 12, flex: 1},
-  titleText: {fontSize: theme.spacing.XL},
+  titleText: {fontSize: theme.spacing.XL, color: 'white', fontStyle: 'italic'},
 });
 
 const ContainerScreen = ({children, title}: ContainerScreenProps) => {

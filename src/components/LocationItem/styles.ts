@@ -6,6 +6,8 @@ export default StyleSheet.create({
     backgroundColor: theme.color.lightBackground,
     marginVertical: theme.spacing.L,
     borderRadius: theme.spacing.L,
+  },
+  pressable: {
     flexDirection: 'row',
   },
   leftContainer: {
@@ -27,10 +29,12 @@ export default StyleSheet.create({
     paddingHorizontal: 4,
     paddingVertical: theme.spacing.S,
     textAlign: 'center',
+    color: 'white',
   },
   largeText: {
     fontSize: 48,
     textAlign: 'center',
+    color: 'white',
   },
   image: {height: 100, width: 100},
 });

@@ -8,6 +8,7 @@ import {
   HomeStackRoutes,
   StackNavigationProps,
 } from '../../utils/types/Navigation.ts';
+import LinearGradient from 'react-native-linear-gradient';
 
 interface Props {
   item: {name: string; coordinates: {latitude: string; longitude: string}};
@@ -26,40 +27,44 @@ const LocationItem = ({item}: Props) => {
   };
 
   return (
-    <Pressable style={styles.locationContainer} onPress={onPressHandler}>
-      {isLoading ? (
-        <ActivityIndicator />
-      ) : (
-        <View style={styles.leftContainer}>
-          <View>
-            <Text style={styles.largeText}>
-              {`${weatherData?.temperature ?? 'no data'}` + '\u00b0'}
-            </Text>
+    <LinearGradient
+      style={styles.locationContainer}
+      colors={['#A888FD', '#5996FD', '#A888FD', '#5996FD']}>
+      <Pressable style={styles.pressable} onPress={onPressHandler}>
+        {isLoading ? (
+          <ActivityIndicator />
+        ) : (
+          <View style={styles.leftContainer}>
+            <View>
+              <Text style={styles.largeText}>
+                {`${weatherData?.temperature ?? 'no data'}` + '\u00b0'}
+              </Text>
+            </View>
+            <View style={styles.textContainer}>
+              <Text style={styles.smallText}>
+                {weatherData?.maxTemp ?? 'h:24'}
+              </Text>
+              <Text style={styles.smallText}>
+                {weatherData?.minTemp ?? 'l:19'}
+              </Text>
+            </View>
+            <View style={{...styles.textContainer}}>
+              <Text>{item.name}</Text>
+            </View>
           </View>
-          <View style={styles.textContainer}>
-            <Text style={styles.smallText}>
-              {weatherData?.maxTemp ?? 'h:24'}
-            </Text>
-            <Text style={styles.smallText}>
-              {weatherData?.minTemp ?? 'l:19'}
-            </Text>
+        )}
+        {isLoading ? (
+          <ActivityIndicator />
+        ) : (
+          <View style={styles.rightContainer}>
+            <Image
+              source={require('../../../assets/images/cloudy.png')}
+              style={styles.image}
+            />
           </View>
-          <View style={{...styles.textContainer}}>
-            <Text>{item.name}</Text>
-          </View>
-        </View>
-      )}
-      {isLoading ? (
-        <ActivityIndicator />
-      ) : (
-        <View style={styles.rightContainer}>
-          <Image
-            source={require('../../../assets/images/cloudy.png')}
-            style={styles.image}
-          />
-        </View>
-      )}
-    </Pressable>
+        )}
+      </Pressable>
+    </LinearGradient>
   );
 };
 

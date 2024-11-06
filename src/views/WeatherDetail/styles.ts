@@ -12,7 +12,7 @@ export default StyleSheet.create({
   titleText: {color: 'white'},
   mainTextContainer: {flex: 2, paddingHorizontal: 24},
   mainText: {color: 'white', textAlign: 'right', fontSize: 68},
-  centerText: {color: 'white', textAlign: 'center'},
+  centerText: {color: 'white', textAlign: 'center', fontSize: 18},
   footerContainer: {
     flexDirection: 'row',
     marginVertical: 12,
