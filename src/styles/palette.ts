@@ -1,0 +1,18 @@
+export const palette = {
+  black: '#000000',
+  lightRed: '#e4001d',
+  pink: '#d792be',
+  blue: '#1b61ff',
+  darkBlue: '#163ee0',
+  text: '#0C0D34',
+  lightGray: '#eff5f5',
+  backgroundGray: 'rgb(235, 233, 233)',
+  darkGray: 'rgba(128, 128, 128,1)',
+  darkGreen: 'rgb(70,114,60)',
+  purple: 'rgba(128,0,128,1)',
+  green: 'rgba(115,187,108,1)',
+  lightGreen: 'rgba(160,203,123,1)',
+  yellow: 'rgba(252,208,62,1)',
+  orange: 'rgba(240,129,81,1)',
+  red: 'rgba(234,85,100,1)',
+};
