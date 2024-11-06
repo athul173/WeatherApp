@@ -3,9 +3,10 @@ import {fireEvent, render, waitFor} from '@testing-library/react-native';
 
 import {useNavigation} from '@react-navigation/native';
 import GeoLocation from '../../../../../utils/types/GeoLocation';
-import {useGetWeatherInfoQuery} from '../../../../../state/weather';
 import LocationItem from '../index';
 import {getWeatherData} from '../../../../../utils/parser/getWeatherData';
+import {useGetWeatherInfoQuery} from '../../../../../state/weather';
+import {CompleteWeatherForecast} from '../../../../../utils/types/weatherDataModel';
 
 // Mock the necessary modules
 jest.mock('../../../../../state/weather', () => ({
@@ -16,11 +17,14 @@ jest.mock('@react-navigation/native', () => ({
   useNavigation: jest.fn(),
 }));
 
+const mockUseGetWeatherInfoQuery = useGetWeatherInfoQuery as jest.Mock;
+const mockUseNavigation = useNavigation as jest.Mock;
+
 describe('LocationItem', () => {
   const mockNavigate = jest.fn();
   const item: GeoLocation = {
     name: 'Test Location',
-    coordinates: {latitude: 0, longitude: 0},
+    coordinates: {latitude: '0', longitude: '0'},
   };
 
   const mockWeatherData = {
@@ -61,12 +65,12 @@ describe('LocationItem', () => {
   };
 
   beforeEach(() => {
-    useNavigation.mockReturnValue({navigate: mockNavigate});
+    mockUseNavigation.mockReturnValue({navigate: mockNavigate});
   });
 
   it('shows loading indicator when data is loading', () => {
     // Mock useGetWeatherInfoQuery to simulate loading state
-    useGetWeatherInfoQuery.mockReturnValue({
+    mockUseGetWeatherInfoQuery.mockReturnValue({
       data: null,
       error: null,
       isLoading: true,
@@ -80,7 +84,7 @@ describe('LocationItem', () => {
 
   it('shows error message and warning image when there is an error fetching data', () => {
     // Mock useGetWeatherInfoQuery to simulate error state
-    useGetWeatherInfoQuery.mockReturnValue({
+    mockUseGetWeatherInfoQuery.mockReturnValue({
       data: null,
       error: new Error('Failed to fetch weather data'),
       isLoading: false,
@@ -92,12 +96,12 @@ describe('LocationItem', () => {
     expect(getByText('Error fetching data')).toBeTruthy();
 
     // Assert the warning image is displayed
-    expect(getByTestId('kandi')).toBeTruthy();
+    expect(getByTestId('error-test-image')).toBeTruthy();
   });
 
   it('displays weather data and the cloudy image when data is fetched successfully', async () => {
     // Mock the useGetWeatherInfoQuery to return weather data
-    useGetWeatherInfoQuery.mockReturnValue({
+    mockUseGetWeatherInfoQuery.mockReturnValue({
       data: mockWeatherData,
       error: null,
       isLoading: false,
@@ -112,7 +116,7 @@ describe('LocationItem', () => {
 
   it('navigates to WeatherScreen on press', async () => {
     // Mock the useGetWeatherInfoQuery to return weather data
-    useGetWeatherInfoQuery.mockReturnValue({
+    mockUseGetWeatherInfoQuery.mockReturnValue({
       data: mockWeatherData,
       error: null,
       isLoading: false,
@@ -127,7 +131,7 @@ describe('LocationItem', () => {
     await waitFor(() => {
       expect(mockNavigate).toHaveBeenCalledWith('WeatherScreen', {
         locationItem: item,
-        weatherData: getWeatherData(mockWeatherData),
+        weatherData: getWeatherData(mockWeatherData as CompleteWeatherForecast),
       });
     });
   });
