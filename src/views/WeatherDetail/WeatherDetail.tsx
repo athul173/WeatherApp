@@ -46,7 +46,11 @@ const WeatherDetail = () => {
   );
 
   return (
-    <View style={{...styles.mainContainer, backgroundColor: 'black'}}>
+    <View
+      style={{
+        ...styles.mainContainer,
+        backgroundColor: theme.color.black,
+      }}>
       <ImageBackground
         source={summaryWeather.image}
         imageStyle={{borderRadius: 32}}
@@ -68,7 +72,10 @@ const WeatherDetail = () => {
         </View>
       </ImageBackground>
       <View
-        style={{...styles.mainContainer, backgroundColor: theme.color.black}}>
+        style={{
+          ...styles.mainContainer,
+          backgroundColor: theme.color.black,
+        }}>
         <View style={styles.footerContainer}>
           <View style={styles.footerItemContainer}>
             <Text style={styles.centerText}>{'Sunrise'}</Text>
