@@ -1,16 +1,16 @@
 import React, {useMemo} from 'react';
 import {ActivityIndicator, Image, Pressable, Text, View} from 'react-native';
 import styles from './styles.ts';
-import {useGetWeatherInfoQuery} from '../../state/weather';
-import {getWeatherData} from '../../utils/parser/getWeatherData.ts';
+import {useGetWeatherInfoQuery} from '../../../../state/weather';
+import {getWeatherData} from '../../../../utils/parser/getWeatherData.ts';
 import {useNavigation} from '@react-navigation/native';
 import {
   HomeStackRoutes,
   StackNavigationProps,
-} from '../../utils/types/Navigation.ts';
+} from '../../../../utils/types/Navigation.ts';
 import LinearGradient from 'react-native-linear-gradient';
-import GeoLocation from '../../utils/types/GeoLocation.ts';
-import WeatherDataDisplay from './components/WeatherDataDisplay';
+import GeoLocation from '../../../../utils/types/GeoLocation.ts';
+import WeatherDataDisplay from './components/WeatherDataDisplay.tsx';
 
 interface Props {
   item: GeoLocation;
@@ -49,8 +49,8 @@ const LocationItem = ({item}: Props) => {
             <Image
               source={
                 error
-                  ? require('../../../assets/images/warning.png')
-                  : require('../../../assets/images/cloudy.png')
+                  ? require('../../../../../assets/images/warning.png')
+                  : require('../../../../../assets/images/cloudy.png')
               }
               style={styles.image}
             />

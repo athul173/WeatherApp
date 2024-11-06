@@ -1,6 +1,6 @@
 import React from 'react';
 import ContainerScreen from '../../components/ContainerScreen/ContainerScreen.tsx';
-import LocationItem from '../../components/LocationItem';
+import LocationItem from './components/LocationItem';
 import {Pressable, Text, View} from 'react-native';
 import styles from './styles.ts';
 import useDashboardLocations from './hooks/useDashboardLocations.ts';
