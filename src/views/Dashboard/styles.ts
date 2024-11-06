@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import theme from '../../styles/theme.ts';
+import theme from '../../styles/theme';
 
 export default StyleSheet.create({
   mainContainer: {

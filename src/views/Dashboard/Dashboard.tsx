@@ -1,9 +1,9 @@
 import React from 'react';
-import ContainerScreen from '../../components/ContainerScreen/ContainerScreen.tsx';
+import ContainerScreen from '../../components/ContainerScreen';
 import LocationItem from './components/LocationItem';
 import {Pressable, Text, View} from 'react-native';
-import styles from './styles.ts';
-import useDashboardLocations from './hooks/useDashboardLocations.ts';
+import styles from './styles';
+import useDashboardLocations from './hooks/useDashboardLocations';
 
 const Dashboard = () => {
   const {locations, addLocationHandler} = useDashboardLocations();

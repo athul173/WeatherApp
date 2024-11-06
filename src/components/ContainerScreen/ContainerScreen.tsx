@@ -1,6 +1,6 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import theme from '../../styles/theme.ts';
+import theme from '../../styles/theme';
 
 interface ContainerScreenProps {
   children: React.ReactNode;

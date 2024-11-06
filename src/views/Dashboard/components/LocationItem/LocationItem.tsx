@@ -1,16 +1,16 @@
 import React, {useMemo} from 'react';
 import {ActivityIndicator, Image, Pressable, Text, View} from 'react-native';
-import styles from './styles.ts';
+import styles from './styles';
 import {useGetWeatherInfoQuery} from '../../../../state/weather';
-import {getWeatherData} from '../../../../utils/parser/getWeatherData.ts';
+import {getWeatherData} from '../../../../utils/parser/getWeatherData';
 import {useNavigation} from '@react-navigation/native';
 import {
   HomeStackRoutes,
   StackNavigationProps,
-} from '../../../../utils/types/Navigation.ts';
+} from '../../../../utils/types/Navigation';
 import LinearGradient from 'react-native-linear-gradient';
-import GeoLocation from '../../../../utils/types/GeoLocation.ts';
-import WeatherDataDisplay from './components/WeatherDataDisplay.tsx';
+import GeoLocation from '../../../../utils/types/GeoLocation';
+import WeatherDataDisplay from './components/WeatherDataDisplay';
 
 interface Props {
   item: GeoLocation;

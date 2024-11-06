@@ -1,8 +1,8 @@
-import GeoLocation from '../../../utils/types/GeoLocation.ts';
+import GeoLocation from '../../../utils/types/GeoLocation';
 import {useGetSunriseWeatherInfoQuery} from '../../../state/weather';
 import React, {useMemo} from 'react';
 import {Text, View} from 'react-native';
-import styles from '../styles.ts';
+import styles from '../styles';
 import LinearGradient from 'react-native-linear-gradient';
 
 interface SunriseSunsetTimeProps {

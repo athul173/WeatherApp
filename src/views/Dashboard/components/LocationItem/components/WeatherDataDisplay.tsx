@@ -1,5 +1,5 @@
 import {Text, View} from 'react-native';
-import styles from '../styles.ts';
+import styles from '../styles';
 import React from 'react';
 
 interface WeatherData {

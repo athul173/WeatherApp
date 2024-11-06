@@ -1,7 +1,7 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import {createNativeStackNavigator} from 'react-native-screens/native-stack';
-import {HomeStackRoutes} from '../utils/types/Navigation.ts';
+import {HomeStackRoutes} from '../utils/types/Navigation';
 import Dashboard from '../views/Dashboard';
 import WeatherDetail from '../views/WeatherDetail';
 

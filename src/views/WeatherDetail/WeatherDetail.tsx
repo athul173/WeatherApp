@@ -1,13 +1,13 @@
 import {ImageBackground, Text, View} from 'react-native';
 import React, {useMemo} from 'react';
-import styles from './styles.ts';
-import {HomeStackRoutes} from '../../utils/types/Navigation.ts';
+import styles from './styles';
+import {HomeStackRoutes} from '../../utils/types/Navigation';
 import {RouteProp, useRoute} from '@react-navigation/native';
-import {getWeatherImageSummary} from '../../utils/parser/getWeatherImageSummary.ts';
-import theme from '../../styles/theme.ts';
-import getCurrentDateInFormat from '../../utils/parser/getCurrentDateFormat.ts';
+import {getWeatherImageSummary} from '../../utils/parser/getWeatherImageSummary';
+import theme from '../../styles/theme';
+import getCurrentDateInFormat from '../../utils/parser/getCurrentDateFormat';
 import LinearGradient from 'react-native-linear-gradient';
-import SunriseSunsetTime from './components/SunriseSunsetTime.tsx';
+import SunriseSunsetTime from './components/SunriseSunsetTime';
 
 const WeatherDetail = () => {
   const route = useRoute<RouteProp<HomeStackRoutes, 'WeatherScreen'>>();

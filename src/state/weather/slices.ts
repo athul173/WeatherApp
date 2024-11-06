@@ -1,7 +1,7 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-import {SunriseSunsetDataModel} from '../../utils/types/sunriseWeatherDataModel.ts';
-import {CompleteWeatherForecast} from '../../utils/types/weatherDataModel.ts';
-import GeoLocation from '../../utils/types/GeoLocation.ts';
+import {SunriseSunsetDataModel} from '../../utils/types/sunriseWeatherDataModel';
+import {CompleteWeatherForecast} from '../../utils/types/weatherDataModel';
+import GeoLocation from '../../utils/types/GeoLocation';
 
 const YRSunriseURL = 'https://api.met.no/weatherapi/';
 
