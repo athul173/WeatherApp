@@ -107,7 +107,7 @@ describe('LocationItem', () => {
       isLoading: false,
     });
 
-    const {getByText, getByTestId} = render(<LocationItem item={item} />);
+    const {getByText} = render(<LocationItem item={item} />);
 
     // Assert that the weather data is displayed
     expect(getByText('Test Location')).toBeTruthy();
