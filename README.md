@@ -64,6 +64,19 @@ for unit and integration tests.
 
 To run the test suite, use the following command: `yarn test`
 
+This command will execute all tests within the `tests` directories and generate a coverage report.
+
+### Commit Checks
+
+Enforce code quality and prevent regressions by integrating automated checks into our development workflow. Before
+any code is merged into the main branch, the following checks are performed:
+
+- **Linting:** ESLint to ensure code style and consistency.
+- **Unit Tests:** All unit tests must pass successfully.
+- **Code Coverage:** Maintain a high level of code coverage to ensure that our tests are comprehensive.
+
+These checks are typically implemented using a continuous integration/continuous delivery (CI/CD) pipeline or Git hooks.
+
 ## Base dependencies
 
 - [axios](https://github.com/axios/axios) for networking.
