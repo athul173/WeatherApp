@@ -16,11 +16,15 @@ const Dashboard = () => {
             <LocationItem key={value.name} item={value} />
           ))}
         </View>
-        <View style={styles.buttonContainer}>
-          <Pressable style={styles.button} onPress={addLocationHandler}>
-            <Text style={styles.buttonText}>{'Add your Current location'}</Text>
-          </Pressable>
-        </View>
+        {locations.length < 2 && (
+          <View style={styles.buttonContainer}>
+            <Pressable style={styles.button} onPress={addLocationHandler}>
+              <Text style={styles.buttonText}>
+                {'Add your Current location'}
+              </Text>
+            </Pressable>
+          </View>
+        )}
       </View>
     </ContainerScreen>
   );
