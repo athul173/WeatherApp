@@ -16,7 +16,7 @@ const Dashboard = () => {
             <LocationItem key={value.name} item={value} />
           ))}
         </View>
-        {locations.length < 2 && (
+        {locations.length <= 2 && (
           <View style={styles.buttonContainer}>
             <Pressable style={styles.button} onPress={addLocationHandler}>
               <Text style={styles.buttonText}>
