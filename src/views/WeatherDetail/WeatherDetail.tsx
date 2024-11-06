@@ -7,7 +7,7 @@ import {getWeatherImageSummary} from '../../utils/parser/getWeatherImageSummary.
 import theme from '../../styles/theme.ts';
 import getCurrentDateInFormat from '../../utils/parser/getCurrentDateFormat.ts';
 import LinearGradient from 'react-native-linear-gradient';
-import SunriseSunsetTime from './SunriseSunsetTime.tsx';
+import SunriseSunsetTime from './components/SunriseSunsetTime.tsx';
 
 const WeatherDetail = () => {
   const route = useRoute<RouteProp<HomeStackRoutes, 'WeatherScreen'>>();

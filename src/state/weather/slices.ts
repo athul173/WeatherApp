@@ -4,7 +4,6 @@ import {CompleteWeatherForecast} from '../../utils/types/weatherDataModel.ts';
 
 const YRSunriseURL = 'https://api.met.no/weatherapi/';
 
-//const currentDate = new Date().toISOString().slice(0, 10);
 const userAgent = 'Educational app (testing)';
 
 export const yrAPI = createApi({
