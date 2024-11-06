@@ -1,77 +1,76 @@
-import {useEffect, useMemo, useState} from 'react';
-import Geolocation, {
-  GeolocationResponse,
-} from '@react-native-community/geolocation';
+import {useEffect, useState} from 'react';
+import Geolocation from '@react-native-community/geolocation';
 import {PermissionsAndroid, Platform} from 'react-native';
 
-const useDashboardLocations = () => {
-  const [locationGranted, setLocationGranted] = useState(false);
-  const [locationCoordinates, setLocationCoordinates] = useState<
-    GeolocationResponse['coords'] | undefined
-  >();
+const initialLocations = [
+  {
+    name: 'Berlin',
+    coordinates: {
+      latitude: '52.52',
+      longitude: '13.40',
+    },
+  },
+  {
+    name: 'London',
+    coordinates: {
+      latitude: '51.50',
+      longitude: '0.127',
+    },
+  },
+];
 
-  const requiredLocations = useMemo(() => {
-    const items = [
-      {
-        name: 'Berlin',
-        coordinates: {
-          latitude: '52.52',
-          longitude: '13.40',
-        },
-      },
-      {
-        name: 'London',
-        coordinates: {
-          latitude: '51.50',
-          longitude: '0.127',
-        },
-      },
-    ];
-    if (locationCoordinates && locationGranted) {
-      items.unshift({
-        name: 'My location',
-        coordinates: {
-          latitude: locationCoordinates.latitude.toString(),
-          longitude: locationCoordinates.longitude.toString(),
-        },
-      });
-    }
-    return items;
-  }, [locationCoordinates, locationGranted]);
+const useDashboardLocations = () => {
+  const [locations, setLocations] = useState(initialLocations);
+  const [locationPermissionGranted, setLocationPermissionGranted] =
+    useState(false);
 
   useEffect(() => {
-    if (Platform.OS === 'android') {
-      PermissionsAndroid.check('android.permission.ACCESS_FINE_LOCATION').then(
-        result => {
-          setLocationGranted(result);
-          console.log('Location granted is ', result);
-          if (result) {
-            addLocationHandler();
-          } else {
-            setLocationCoordinates(undefined);
-          }
+    const requestLocationPermission = async () => {
+      if (Platform.OS === 'android') {
+        try {
+          const granted = await PermissionsAndroid.request(
+            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+          );
+          setLocationPermissionGranted(
+            granted === PermissionsAndroid.RESULTS.GRANTED,
+          );
+        } catch (err) {
+          console.warn(err);
+        }
+      }
+      if (Platform.OS === 'ios') {
+        // TODO: add permissions handler for iOS
+      }
+    };
+
+    requestLocationPermission()
+      .then()
+      .catch(() => {});
+  }, []);
+
+  const addCurrentLocation = () => {
+    if (locationPermissionGranted) {
+      Geolocation.getCurrentPosition(
+        position => {
+          setLocations([
+            {
+              name: 'My location',
+              coordinates: {
+                latitude: position.coords.latitude.toString(),
+                longitude: position.coords.longitude.toString(),
+              },
+            },
+            ...locations,
+          ]);
+        },
+        error => {
+          console.log(error);
         },
       );
     }
-  }, []);
-
-  const addLocationHandler = () => {
-    Geolocation.getCurrentPosition(
-      info => {
-        console.log(info);
-        if (info.coords) {
-          setLocationGranted(true);
-          setLocationCoordinates(info.coords);
-        }
-      },
-      error => {
-        setLocationGranted(false);
-        console.log(error);
-      },
-    );
   };
 
-  return {requiredLocations, addLocationHandler};
+  return {locations, addLocationHandler: addCurrentLocation};
 };
 
 export default useDashboardLocations;

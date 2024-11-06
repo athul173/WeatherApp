@@ -6,13 +6,13 @@ import styles from './styles.ts';
 import useDashboardLocations from './hooks/useDashboardLocations.ts';
 
 const Dashboard = () => {
-  const {requiredLocations, addLocationHandler} = useDashboardLocations();
+  const {locations, addLocationHandler} = useDashboardLocations();
 
   return (
     <ContainerScreen title={'Weather'}>
       <View style={styles.mainContainer}>
         <View style={styles.flexContainer}>
-          {requiredLocations.map(value => (
+          {locations.map(value => (
             <LocationItem key={value.name} item={value} />
           ))}
         </View>
