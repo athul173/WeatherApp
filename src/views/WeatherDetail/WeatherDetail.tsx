@@ -1,7 +1,7 @@
 import {ImageBackground, Text, View} from 'react-native';
 import React, {useMemo} from 'react';
 import styles from './styles';
-import {HomeStackRoutes} from '../../utils/types/Navigation';
+import {HomeStackRoutes} from '../../utils/types/navigation';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {getWeatherImageSummary} from '../../utils/parser/getWeatherImageSummary';
 import theme from '../../styles/theme';

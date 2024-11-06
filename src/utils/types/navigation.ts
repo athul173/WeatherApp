@@ -1,5 +1,5 @@
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
-import GeoLocation from './GeoLocation';
+import GeoLocation from './geoLocation';
 
 export type StackNavigationProps<
   ParamList extends ParamListBase,

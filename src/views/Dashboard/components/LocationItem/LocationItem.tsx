@@ -7,9 +7,9 @@ import {useNavigation} from '@react-navigation/native';
 import {
   HomeStackRoutes,
   StackNavigationProps,
-} from '../../../../utils/types/Navigation';
+} from '../../../../utils/types/navigation';
 import LinearGradient from 'react-native-linear-gradient';
-import GeoLocation from '../../../../utils/types/GeoLocation';
+import GeoLocation from '../../../../utils/types/geoLocation';
 import WeatherDataDisplay from './components/WeatherDataDisplay';
 
 interface Props {
