@@ -5,7 +5,7 @@ export default StyleSheet.create({
   locationContainer: {
     backgroundColor: theme.color.lightBackground,
     marginVertical: theme.spacing.L,
-    borderRadius: theme.spacing.L,
+    borderRadius: theme.spacing.XXL,
   },
   pressable: {
     flexDirection: 'row',
