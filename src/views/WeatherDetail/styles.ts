@@ -25,4 +25,7 @@ export default StyleSheet.create({
     margin: 12,
     justifyContent: 'space-evenly',
   },
+  paddingView: {
+    padding: 24,
+  },
 });

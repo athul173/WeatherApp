@@ -21,7 +21,7 @@ module.exports = {
   parserOptions: {
     project: ['./tsconfig.json'],
   },
-  ignorePatterns: ['.eslintrc.js'],
+  ignorePatterns: ['.eslintrc.js', 'coverage/'],
   rules: {
     '@typescript-eslint/camelcase': 'off',
     '@typescript-eslint/no-unused-vars': 'off',

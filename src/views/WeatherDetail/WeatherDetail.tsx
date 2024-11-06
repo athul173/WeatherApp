@@ -26,15 +26,11 @@ const WeatherDetail = () => {
       }}>
       <ImageBackground
         source={summaryWeather.image}
-        imageStyle={{borderRadius: 32}}
+        imageStyle={styles.image}
         style={styles.headerContainer}>
-        <View style={{...styles.mainContainer, padding: 24}}>
+        <View style={{...styles.mainContainer, ...styles.paddingView}}>
           <Text style={styles.titleText}>{getCurrentDateInFormat()}</Text>
-          <Text
-            style={{
-              ...styles.titleText,
-              textAlign: 'center',
-            }}>
+          <Text style={styles.centerText}>
             {locationItem.name + ', ' + summaryWeather.text}
           </Text>
         </View>
