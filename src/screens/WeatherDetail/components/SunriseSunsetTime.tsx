@@ -1,4 +1,4 @@
-import GeoLocation from '../../../utils/types/geoLocation';
+import GeoLocation from '../../../types/geoLocation';
 import {useGetSunriseWeatherInfoQuery} from '../../../state/weather';
 import React, {useMemo} from 'react';
 import {Text, View} from 'react-native';

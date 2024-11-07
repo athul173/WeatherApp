@@ -1,4 +1,4 @@
-import {CompleteWeatherForecast} from '../types/weatherDataModel';
+import {CompleteWeatherForecast} from '../../types/weatherDataModel';
 
 export const getWeatherData = (data: CompleteWeatherForecast | undefined) => {
   if (!data) {

@@ -79,14 +79,13 @@ These checks are typically implemented using a continuous integration/continuous
 
 ## Base dependencies
 
-- [axios](https://github.com/axios/axios) for networking.
 - [react-navigation](https://reactnavigation.org/) navigation library.
-- [react-native-config](https://github.com/luggit/react-native-config) to manage environments.
 - [jest](https://facebook.github.io/jest/)
   and [react-native-testing-library](https://callstack.github.io/react-native-testing-library/) for
-  testing. -[lottie-react-native](https://github.com/lottie-react-native/lottie-react-native) for animations as
-  JSON -[react-native-community/geolocation](https://github.com/michalchudziak/react-native-geolocation) for fetching
+  testing. 
+- [react-native-community/geolocation](https://github.com/michalchudziak/react-native-geolocation) for fetching
   device location
+- Redux toolkit for state management
 
 ## Folder structure
 
@@ -95,12 +94,11 @@ This template follows a very simple project structure:
 - `src`: This folder is the main container of all the code inside your application.
     - `assets`: Asset folder to store all images, vectors, etc.
     - `components`: Folder to store any common component that you use through your app (such as a generic button)
-    - `container`: All screen-based components inside containers, such as Tabs, Drawers, Stack Navigators.
+    - `navigation`: All screen-based components inside containers, such as Tabs, Drawers, Stack Navigators.
     - `screens`: Folder that contains all your application screens/features.
     - `utils`: All the utils/helpers files go here that storing reusable methods and logic.
     - `styles`: Folder to store all the styling concerns related to the application theme like palettes,themes etc.
     - `index.js`: Entry point of your application as per React-Native standards.
-    -
 
 ## Generate production version
 

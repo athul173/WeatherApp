@@ -11,7 +11,7 @@ import {SafeAreaView, StatusBar, useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {ApiProvider} from '@reduxjs/toolkit/query/react';
 import {yrAPI} from './src/state/weather/slices';
-import AppNavigator from './src/container/AppNavigator';
+import AppNavigator from './src/navigation/AppNavigator';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';

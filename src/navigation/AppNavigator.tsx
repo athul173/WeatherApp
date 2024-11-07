@@ -1,9 +1,9 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import {createNativeStackNavigator} from 'react-native-screens/native-stack';
-import {HomeStackRoutes} from '../utils/types/navigation';
-import Dashboard from '../views/Dashboard';
-import WeatherDetail from '../views/WeatherDetail';
+import {HomeStackRoutes} from './navigation';
+import Dashboard from '../screens/Dashboard';
+import WeatherDetail from '../screens/WeatherDetail';
 
 const AppNavigator = () => {
   const HomeStack = createNativeStackNavigator<HomeStackRoutes>();
